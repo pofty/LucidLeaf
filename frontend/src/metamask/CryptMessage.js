@@ -4,7 +4,7 @@ import CryptoJS from 'crypto-js';
 let EncryptionKey = "";
 let publicAddress = "";
 
-async function getPublicAddress(message) {
+export async function getPublicAddress(message) {
     if (publicAddress !== "") {
         return publicAddress;
     }
@@ -20,7 +20,7 @@ async function getPublicAddress(message) {
     return null;
 }
 
-async function getEncryptionKey(message) {
+export async function getEncryptionKey(message) {
     if (EncryptionKey !== "") {
         return EncryptionKey;
     }
@@ -45,9 +45,9 @@ export async function encryptMessage(plainText) {
    return CryptoJS.AES.encrypt(plainText, getEncryptionKey()).toString();
 }
 
-async function decryptMessage(encryptedMessage) {
+export async function decryptMessage(encryptedMessage) {
 const bytes = CryptoJS.AES.decrypt(encryptedMessage, getEncryptionKey());
   return bytes.toString(CryptoJS.enc.Utf8);
 }
 
-export default {encryptMessage, decryptMessage};
+export default {getPublicAddress, encryptMessage, decryptMessage, getEncryptionKey};

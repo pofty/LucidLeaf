@@ -1,56 +1,42 @@
 import React, { useState } from 'react';
-//import './InputBox.css';
-//import './Journal.css';
 import './InputBox.css';
-import { encryptMessage } from './metamask/CryptMessage.js';
+import {getPublicAddress, encryptMessage, getEncryptionKey} from './metamask/CryptMessage.js';
 
 function InputBox({ onClose }) {
-	const [inputValue, setInputValue] = useState('');
+ const [inputValue, setInputValue] = useState('');
 
-	const handleChange = (event) => {
-    	setInputValue(event.target.value);
-  	};
+ const handleChange = event => setInputValue(event.target.value);
 
-    const handleSubmit = async (event) => {
-        event.preventDefault();
-        const encryptedMessage = await encryptMessage(inputValue).then((result) => {return result});
-        console.log('User input:', inputValue);
-        console.log('Encrypted message:', encryptedMessage);
-        setInputValue(encryptedMessage); // Replace the inputValue with its encrypted version
+    const handleSetupEncryptionKeys = (event) => {
+        event.stopPropagation();
+        getPublicAddress();
+        getEncryptionKey();
     };
-  	return (
-    	<div className="InputBox">
-			<form onSubmit={handleSubmit}>
-				<label>
-					<textarea value={inputValue} onChange={handleChange} />
-				</label>
-				<button type="submit">Encrypt & Submit</button>
-				<button onClick={onClose}>Close</button>
-			</form>
-		</div>
-	);
+
+    const handleSubmit = async event => {
+        event.preventDefault();
+        const encryptedMessage = await encryptMessage(inputValue);
+        setInputValue(encryptedMessage);
+    };
+
+   return (
+     <div className="InputBox">
+            <form onSubmit={handleSubmit}>
+                <textarea value={inputValue} onChange={handleChange}/>
+                <button onClick={handleSetupEncryptionKeys}>Setup Encryption Keys</button>
+                <button type="submit">Encrypt and Submit</button>
+                <button onClick={onClose}>Close</button>
+            </form>
+        </div>
+    );
 }
 
-function InputButton() {
-  const [showInputBox, setShowInputBox] = useState(false);
+export default function InputButton() {
+    const [showInputBox, setShowInputBox] = useState(false);
 
-  const handleClick = () => {
-    setShowInputBox(true);
-  };
-
-  const handleClose = () => {
-    setShowInputBox(false);
-  };
-
-  return (
-    <div className="Journal">
-      {showInputBox ? (
-        <InputBox onClose={handleClose} />
-      ) : (
-        <button onClick={handleClick}>Journal</button>
-      )}
-    </div>
-  );
+    return (
+        <div className="Journal">
+            {showInputBox ? <InputBox onClose={() => setShowInputBox(false)} /> : <button onClick={() => setShowInputBox(true)}>Journal</button>}
+        </div>
+    );
 }
-
-export default InputButton;
