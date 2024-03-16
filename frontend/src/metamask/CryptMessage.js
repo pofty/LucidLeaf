@@ -1,7 +1,7 @@
 import CryptoJS from 'crypto-js';
 
 
-let EncryptionKey = "";
+let encryptionKey = "";
 let publicAddress = "";
 
 export async function getPublicAddress(message) {
@@ -21,8 +21,8 @@ export async function getPublicAddress(message) {
 }
 
 export async function getEncryptionKey(message) {
-    if (EncryptionKey !== "") {
-        return EncryptionKey;
+    if (encryptionKey !== "") {
+        return encryptionKey;
     }
     try {
         const getEncryptionKey = await window.ethereum.request({
@@ -30,7 +30,7 @@ export async function getEncryptionKey(message) {
             params: [await getPublicAddress(message).then((result) => {return result[0]})]
         });
         console.log("the getEncryptionKey response was", getEncryptionKey);
-        EncryptionKey = getEncryptionKey;
+        encryptionKey= getEncryptionKey;
         return getEncryptionKey;
     }
     catch (error) {
@@ -42,7 +42,10 @@ export async function getEncryptionKey(message) {
 export async function encryptMessage(plainText) {
     console.log("The plainText is", plainText);
     console.log("attempting to encrypt message");
-   return CryptoJS.AES.encrypt(plainText, getEncryptionKey()).toString();
+    encryptionKey = await getEncryptionKey();
+    const encryptedMessage = CryptoJS.AES.encrypt(plainText, encryptionKey).toString();
+    console.log("The encrypted message is now", encryptedMessage);
+    return encryptedMessage;
 }
 
 export async function decryptMessage(encryptedMessage) {

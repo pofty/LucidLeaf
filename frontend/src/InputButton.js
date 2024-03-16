@@ -3,15 +3,9 @@ import './InputBox.css';
 import {getPublicAddress, encryptMessage, getEncryptionKey} from './metamask/CryptMessage.js';
 
 function InputBox({ onClose }) {
- const [inputValue, setInputValue] = useState('');
+    const [inputValue, setInputValue] = useState('');
 
- const handleChange = event => setInputValue(event.target.value);
-
-    const handleSetupEncryptionKeys = (event) => {
-        event.stopPropagation();
-        getPublicAddress();
-        getEncryptionKey();
-    };
+    const handleChange = event => setInputValue(event.target.value);
 
     const handleSubmit = async event => {
         event.preventDefault();
@@ -19,11 +13,10 @@ function InputBox({ onClose }) {
         setInputValue(encryptedMessage);
     };
 
-   return (
-     <div className="InputBox">
+    return (
+        <div className="InputBox">
             <form onSubmit={handleSubmit}>
                 <textarea value={inputValue} onChange={handleChange}/>
-                <button onClick={handleSetupEncryptionKeys}>Setup Encryption Keys</button>
                 <button type="submit">Encrypt and Submit</button>
                 <button onClick={onClose}>Close</button>
             </form>
