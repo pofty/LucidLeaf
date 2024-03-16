@@ -1,5 +1,6 @@
 import React from 'react';
 import './ConnectButton.css';
+
 function ConnectButton() {
   const connectToMetaMask = async () => {
     try {
