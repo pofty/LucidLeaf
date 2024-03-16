@@ -1,16 +1,27 @@
 import React, { useState } from 'react';
 import './InputBox.css';
 import {getPublicAddress, encryptMessage, getEncryptionKey} from './metamask/CryptMessage.js';
+import {uploadText} from "./lighthouse/UploadText.js";
+import {JournalType} from "./constants/JournalType.js";
 
 function InputBox({ onClose }) {
     const [inputValue, setInputValue] = useState('');
     const [labelValue, setLabelValue] = useState('');
+    const [uploadStatus, setUploadStatus] = useState('⏱️ Not Yet upload');
+    const [ipfsHash, setIpfsHash] = useState('');
+    const [isIpfsLinkVisable, setIpfsLinkVisibility] = useState(false);
 
 
     const handleChange = event => setInputValue(event.target.value);
 
     const updateLabelValue = (newValue) => {
         setLabelValue(newValue);
+    };
+
+    const updateUploadStatus = (newValue) => {
+        setUploadStatus("✅ Uploaded");
+        setIpfsHash(newValue.toString());
+        setIpfsLinkVisibility(true);
     };
 
     const handleSubmit = async event => {
@@ -22,8 +33,9 @@ function InputBox({ onClose }) {
 
     const handleUpload = () => {
         console.log('Upload button clicked');
-        // Add your upload logic here
-    };
+        uploadText(labelValue, JournalType.DIARY.toString()).then(returned => updateUploadStatus(returned));
+        //updateUploadStatus("✅ Uploaded")
+    }
 
 return (
     <div className="InputBox">
@@ -32,10 +44,13 @@ return (
             <br></br>
             <label>{labelValue}</label>
             <textarea value={inputValue} onChange={handleChange}/>
-            <div className="button-group">
-                <button type="submit">Get Key and Encrypt</button>
-                <button type="upload" onClick={handleUpload}>Upload</button>
-                <button type="close" onClick={onClose}>Close</button>
+            <label>{uploadStatus}</label>
+            <a href={`https://gateway.lighthouse.storage/ipfs/${ipfsHash}`} target="_blank" rel="noopener noreferrer">
+{isIpfsLinkVisable && <label>{`https://gateway.lighthouse.storage/ipfs/${ipfsHash}`}</label>}              </a>
+        <div className="button-group">
+            <button type="submit">Get Key and Encrypt</button>
+            <button type="upload" onClick={handleUpload}>Upload</button>
+            <button type="close" onClick={onClose}>Close</button>
 
             </div>
         </form>
