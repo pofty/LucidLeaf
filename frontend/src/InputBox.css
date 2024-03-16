@@ -1,0 +1,76 @@
+/* App.css */
+
+.InputBox {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	background-color: #ffffff;
+	padding: 30px; /* Increase padding to make the box bigger */
+	border: 1px solid #cccccc;
+	border-radius: 5px; /* Increase border-radius for a more rectangular shape */
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+	z-index: 1;
+}
+
+.InputBox form {
+	display: flex;
+	flex-direction: column;
+}
+  
+.InputBox label {
+	margin-bottom: 10px;
+  }
+  
+.InputBox input[type="text"] {
+	padding: 15px; /* Increase padding to match the outer box */
+	border: 1px solid #cccccc; /* Remove the border to merge with the outer box */
+	border-radius: 0; /* Set border-radius to 0 to match the outer box */
+	font-size: 16px; /* Increase font size for better visibility */
+	width: calc(100% - 32px); /* Adjust width to match the padding of the outer box */
+	margin-bottom: 10px; /* Add margin to separate from other elements */
+}
+
+  
+.InputBox button {
+	margin-top: 10px;
+	padding: 10px 20px;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+  }
+  
+.InputBox button[type="submit"] {
+	background-color: #B057C9;
+	color: white;
+  }
+  
+.InputBox button[type="submit"]:hover {
+	background-color: #8A00B2;
+  }
+  
+.InputBox button[type="submit"]:focus {
+	outline: none;
+  }
+  
+.InputBox button[type="submit"]:active {
+	background-color: #8A00B2;
+  }
+  
+.InputBox button[type="button"] {
+	background-color: #e0e0e0;
+	color: #333333;
+  }
+  
+.InputBox button[type="button"]:hover {
+	background-color: #cccccc;
+  }
+  
+.InputBox button[type="button"]:focus {
+	outline: none;
+  }
+  
+.InputBox button[type="button"]:active {
+	background-color: #b3b3b3;
+  }
+  

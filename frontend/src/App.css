@@ -16,8 +16,8 @@
 	position: fixed;
 	top: 20px;
 	right: 20px;
-	background-color: #007bff;
-	color: rgb(231, 23, 23);
+	background-color: #B057C9;
+	color: rgb(0,0,0);
 	border: none;
 	border-radius: 4px;
 	padding: 10px 20px;
@@ -38,4 +38,11 @@
 
 .App-link {
   color: #61dafb;
+}
+
+.Journal {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
 }
