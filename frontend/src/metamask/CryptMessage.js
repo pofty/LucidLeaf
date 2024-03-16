@@ -49,8 +49,9 @@ export async function encryptMessage(plainText) {
 }
 
 export async function decryptMessage(encryptedMessage) {
-const bytes = CryptoJS.AES.decrypt(encryptedMessage, getEncryptionKey());
-  return bytes.toString(CryptoJS.enc.Utf8);
+        encryptionKey = await getEncryptionKey();
+        const bytes = CryptoJS.AES.decrypt(encryptedMessage, encryptionKey);
+        return bytes.toString(CryptoJS.enc.Utf8);
 }
 
 export default {getPublicAddress, encryptMessage, decryptMessage, getEncryptionKey};
