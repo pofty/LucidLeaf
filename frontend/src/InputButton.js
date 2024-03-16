@@ -9,7 +9,12 @@ function InputBox({ onClose }) {
     const [labelValue, setLabelValue] = useState('');
     const [uploadStatus, setUploadStatus] = useState('⏱️ Not Yet upload');
     const [ipfsHash, setIpfsHash] = useState('');
+    const [encryptButtonText, setEncryptButtonText] = useState('Retrieve Encryption Key and Encrypt');
+    const [uploadButtonText, setUploadButtonText] = useState('Upload to IPFS network on FileCoin');
     const [isIpfsLinkVisable, setIpfsLinkVisibility] = useState(false);
+    const [isEncryptedAlreadyDone, setIsEncryptedAlreadyDone] = useState(false);
+    const [isAlreadyUploaded, setIsAlreadyUploaded] = useState(false);
+
 
 
     const handleChange = event => setInputValue(event.target.value);
@@ -29,12 +34,16 @@ function InputBox({ onClose }) {
         const encryptedMessage = await encryptMessage(inputValue);
         updateLabelValue(encryptedMessage);
         setInputValue(inputValue)
+        setIsEncryptedAlreadyDone(true);
+        setEncryptButtonText("✅ Retrieved Key and Encrypted");
     };
 
     const handleUpload = () => {
         console.log('Upload button clicked');
         uploadText(labelValue, JournalType.DIARY.toString()).then(returned => updateUploadStatus(returned));
         //updateUploadStatus("✅ Uploaded")
+        setIsAlreadyUploaded(true);
+        setUploadButtonText("✅ Uploaded to IPFS network on FileCoin");
     }
 
 return (
@@ -48,9 +57,9 @@ return (
             <a href={`https://gateway.lighthouse.storage/ipfs/${ipfsHash}`} target="_blank" rel="noopener noreferrer">
 {isIpfsLinkVisable && <label>{`https://gateway.lighthouse.storage/ipfs/${ipfsHash}`}</label>}              </a>
         <div className="button-group">
-            <button type="submit">Get Key and Encrypt</button>
-            <button type="upload" onClick={handleUpload}>Upload</button>
-            <button type="close" onClick={onClose}>Close</button>
+            <button type="submit" disabled={isEncryptedAlreadyDone} >{encryptButtonText}</button>
+            <button type="upload" disabled={isAlreadyUploaded} onClick={handleUpload}>{uploadButtonText} </button>
+            <button type="close" onClick={onClose}>Close and Go Back</button>
 
             </div>
         </form>

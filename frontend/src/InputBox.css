@@ -13,9 +13,10 @@
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     font-family: 'Roboto', sans-serif;
     transition: all 0.3s ease;
-    width: 80%; /* set a width */
-    max-width: 600px; /* set a maximum width */
-    overflow: auto; /* add a scrollbar when the content is too large */
+    width: 100%;
+    max-width: 1000px;
+    overflow: auto;
+    flex-grow: 1;
 }
 
 .InputBox form {
@@ -116,4 +117,9 @@
 .InputBox button[type="close"]:hover {
     background-color: #e00d23;
     transform: scale(1.05);
+}
+
+.InputBox button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
 }
