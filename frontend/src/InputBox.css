@@ -1,74 +1,92 @@
 .InputBox {
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	background-color: #ffffff;
-	padding: 30px;
-	border: 1px solid #cccccc;
-	border-radius: 5px;
-	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #f8f9fa;
+    padding: 30px;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    font-family: 'Roboto', sans-serif;
 }
 
 .InputBox form {
-	display: flex;
-	flex-direction: column;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
 .InputBox label {
-	margin-bottom: 10px;
-}
-  
-.InputBox input[type="text"] {
-	padding: 30px;
-	border: 1px solid #cccccc;
-	border-radius: 0;
-	font-size: 16px;
-	width: calc(100% - 32px);
-	margin-bottom: 10px;
-	z-index: 2;
+    color: #495057;
+    font-size: 1.2em;
 }
 
-  
+.InputBox textarea {
+    padding: 15px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    font-size: 1em;
+    width: 100%;
+    resize: none;
+}
+
 .InputBox button {
-	margin-top: 10px;
-	padding: 10px 20px;
-	border: none;
-	border-radius: 4px;
-	cursor: pointer;
-	z-index: 1;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    font-size: 1em;
+    margin-top: 10px;
 }
-  
+
 .InputBox button[type="submit"] {
-	background-color: #B057C9;
-	color: white;
+    background-color: #B15BCA;
+    color: white;
 }
-  
+
 .InputBox button[type="submit"]:hover {
-	background-color: #8A00B2;
+    background-color: #5a6268;
+    transform: scale(1.05);
 }
-  
+
 .InputBox button[type="submit"]:focus {
-	outline: none;
+    outline: none;
+    box-shadow: 0 0 0 0.2rem rgba(108, 117, 125, 0.5);
 }
-  
-.InputBox button[type="submit"]:active {
-	background-color: #8A00B2;
-}
-  
+
 .InputBox button[type="button"] {
-	background-color: #e0e0e0;
-	color: #333333;
+    background-color: #e9ecef;
+    color: #495057;
 }
-  
+
 .InputBox button[type="button"]:hover {
-	background-color: #cccccc;
+    background-color: #dee2e6;
+    transform: scale(1.05);
 }
-  
+
 .InputBox button[type="button"]:focus {
-	outline: none;
+    outline: none;
+    box-shadow: 0 0 0 0.2rem rgba(233, 236, 239, 0.5);
 }
-  
-.InputBox button[type="button"]:active {
-	background-color: #b3b3b3;
+
+.InputBox button[type="upload"] {
+    background-color: #e5c600;
+    color: white;
+}
+
+.InputBox button[type="upload"]:hover {
+    background-color: #bfa800;
+    transform: scale(1.05);
+}
+
+.InputBox button[type="close"] {
+    background-color: #e50008;
+    color: white;
+}
+
+.InputBox button[type="close"]:hover {
+    background-color: #e00d23;
+    transform: scale(1.05);
 }

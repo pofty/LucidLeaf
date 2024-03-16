@@ -4,22 +4,39 @@ import {getPublicAddress, encryptMessage, getEncryptionKey} from './metamask/Cry
 
 function InputBox({ onClose }) {
     const [inputValue, setInputValue] = useState('');
+    const [labelValue, setLabelValue] = useState('');
+
 
     const handleChange = event => setInputValue(event.target.value);
+
+    const updateLabelValue = (newValue) => {
+        setLabelValue(newValue);
+    };
 
     const handleSubmit = async event => {
         event.preventDefault();
         const encryptedMessage = await encryptMessage(inputValue);
-        setInputValue(encryptedMessage);
+        updateLabelValue(encryptedMessage);
+        setInputValue(inputValue)
+    };
+
+    const handleUpload = () => {
+        console.log('Upload button clicked');
+        // Add your upload logic here
     };
 
     return (
         <div className="InputBox">
             <form onSubmit={handleSubmit}>
+                <label>{"in ciphered text using your wallet keys:"}</label>
+                <br></br>
+                <label>{labelValue}</label>
                 <textarea value={inputValue} onChange={handleChange}/>
-                <button type="submit">Encrypt and Submit</button>
-                <button onClick={onClose}>Close</button>
+                <button type="submit">Get Key and Encrypt</button>
+                <button type="upload" onClick={handleUpload}>Upload</button>
+                <button type="close" onClick={onClose}>Close</button>
             </form>
+
         </div>
     );
 }
