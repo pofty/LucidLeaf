@@ -1,7 +1,7 @@
 import logo from './Logo.png';
 import './App.css';
-import ConnectButton from './ConnectButton';
-import InputButton from './InputButton';
+import ConnectButton from './ConnectButton.js';
+import InputButton from './InputButton.js';
 
 function App() {
   return (
