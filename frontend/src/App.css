@@ -1,15 +1,18 @@
 .App {
     background-color: #F4F3F3;
     text-align: center;
+    padding: 1em;
 }
 
 .App-logo {
-    position: absolute;
-    top: 20%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    height: 40vmin;
-    pointer-events: none;
+ position: absolute;
+ top: 20%;
+ left: 50%;
+ transform: translate(-50%, -50%);
+ height: 40vmin;
+ pointer-events: none;
+ z-index: 1;
+ transition: all 0.3s ease;
 }
 
 .Connect-button {
@@ -22,7 +25,8 @@
     border-radius: 4px;
     padding: 10px 20px;
     cursor: pointer;
-    font-size: 16px;
+    font-size: 1em;
+    transition: all 0.3s ease;
 }
 
 .App-header {
@@ -34,10 +38,12 @@
     justify-content: center;
     font-size: calc(10px + 2vmin);
     color: white;
+    padding: 1em;
 }
 
 .App-link {
     color: #61dafb;
+    transition: color 0.3s ease;
 }
 
 .Journal {
@@ -45,4 +51,8 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    min-width: 5000px;
+    z-index: 2;
+    padding: 1em;
+    transition: all 0.3s ease;
 }
