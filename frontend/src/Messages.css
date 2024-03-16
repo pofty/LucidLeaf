@@ -1,12 +1,22 @@
 
-.JournalType {
-	position: fixed;
+.Container {
+	position: absolute;
 	top: 20px;
+    align-items: center;
+}
+
+.JournalType {
+	color: #5A6B7B;
+	font-size: larger;
+	font-weight: 250;
+	position: fixed;
+	top: 3em;
     margin-top: 20px; /* Adjust as needed */
+	z-index: 2;
 }
 
 #journalType {
-    width: 200px; /* Adjust width as needed */
+    width: 100px; /* Adjust width as needed */
     padding: 10px;
     font-size: 16px;
     border: 1px solid #ccc;
