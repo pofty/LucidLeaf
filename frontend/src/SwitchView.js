@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import InputButton from './InputButton.js';
-import View from './View.js';
-import './Button.css';
+import Messages from './Messages.js';
+import './Switch.css';
 
 const SwitchView = () => {
   const [showInputButton, setShowInputButton] = useState(true);
@@ -15,7 +15,7 @@ const SwitchView = () => {
     <button className="Button" onClick={toggleComponent}>
     Switch View
 	</button>
-        {showInputButton ? <InputButton /> : <View />}
+        {showInputButton ? <InputButton /> : <Messages />}
     </div>
   );
 };

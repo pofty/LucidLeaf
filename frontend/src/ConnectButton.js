@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Identicon from 'identicon.js';
-import './ConnectButton.css';
+import './Connect.css';
 
 function ConnectButton() {
   const [connectedAddress, setConnectedAddress] = useState(null);
@@ -74,15 +74,13 @@ function ConnectButton() {
         <img src={`data:image/png;base64,${identiconData}`} alt="Identicon" className="Identicon" />
         <div className="Connected-address">
           {connectedAddress}
-        </div>
 		<button onClick={disconnectFromMetaMask} className="Sign_out">Sign out</button>
       </div>
+    </div>
     );
   } else {
     return (
-      <div>
-        <button onClick={connectToMetaMask} className="Connect-button">Connect MetaMask</button>
-      </div>
+        <button onClick={connectToMetaMask} className="Connect">Connect MetaMask</button>
     );
   }
 }

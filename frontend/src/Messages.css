@@ -1,0 +1,10 @@
+.Container {
+	position: absolute;
+	display: flex;	
+}
+
+.Messages {
+	position: relative;
+	top: 0px;
+	align-items: center;
+}

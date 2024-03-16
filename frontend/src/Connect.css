@@ -1,5 +1,5 @@
-.Connect-button {
-	position: fixed;
+.Connect {
+	position: absolute;
 	top: 20px;
 	right: 20px;
 	background-color: #B15BCA;
@@ -12,8 +12,11 @@
 }
   
 .Connected-account {
+	position: absolute;
 	display: flex;
-	align-items: center;
+	top: 20px;
+	left: 20px;
+	z-index: 1;
 }
   
 .Identicon {
@@ -24,6 +27,7 @@
 }
   
 .Connected-address {
+	position: relative;
 	color: #B15BCA;
 	font-size: 16px;
 	z-index: 1;
