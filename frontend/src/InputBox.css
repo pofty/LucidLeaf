@@ -15,6 +15,7 @@
     transition: all 0.3s ease;
     width: 80%; /* set a width */
     max-width: 600px; /* set a maximum width */
+    overflow: auto; /* add a scrollbar when the content is too large */
 }
 
 .InputBox form {
@@ -26,10 +27,25 @@
     gap: 1em;
 }
 
+.button-group {
+    display: flex;
+    flex-grow: 1;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.button-group button {
+
+}
+
 .InputBox label {
     color: #495057;
     font-size: 1.2em;
     transition: color 0.3s ease;
+    word-wrap: break-word;
+    width: 100%;
+    overflow-wrap: break-word;
 }
 
 .InputBox textarea {

@@ -25,20 +25,22 @@ function InputBox({ onClose }) {
         // Add your upload logic here
     };
 
-    return (
-        <div className="InputBox">
-            <form onSubmit={handleSubmit}>
-                <label>{"in ciphered text using your wallet keys:"}</label>
-                <br></br>
-                <label>{labelValue}</label>
-                <textarea value={inputValue} onChange={handleChange}/>
+return (
+    <div className="InputBox">
+        <form onSubmit={handleSubmit}>
+            <label>{"in ciphered text using your wallet keys:"}</label>
+            <br></br>
+            <label>{labelValue}</label>
+            <textarea value={inputValue} onChange={handleChange}/>
+            <div className="button-group">
                 <button type="submit">Get Key and Encrypt</button>
                 <button type="upload" onClick={handleUpload}>Upload</button>
                 <button type="close" onClick={onClose}>Close</button>
-            </form>
 
-        </div>
-    );
+            </div>
+        </form>
+    </div>
+);
 }
 
 export default function InputButton() {
