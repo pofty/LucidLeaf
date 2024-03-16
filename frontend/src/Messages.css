@@ -1,10 +1,16 @@
-.Container {
-	position: absolute;
-	display: flex;	
+
+.JournalType {
+	position: fixed;
+	top: 20px;
+    margin-top: 20px; /* Adjust as needed */
 }
 
-.Messages {
-	position: relative;
-	top: 0px;
-	align-items: center;
+#journalType {
+    width: 200px; /* Adjust width as needed */
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    cursor: pointer;
 }
