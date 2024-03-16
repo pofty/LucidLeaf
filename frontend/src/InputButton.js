@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 //import './InputBox.css';
 //import './Journal.css';
 import './InputBox.css';
+import { encryptMessage } from './metamask/CryptMessage.js';
 
 function InputBox({ onClose }) {
 	const [inputValue, setInputValue] = useState('');
@@ -10,18 +11,20 @@ function InputBox({ onClose }) {
     	setInputValue(event.target.value);
   	};
 
-	const handleSubmit = (event) => {
-    	event.preventDefault();
-    	console.log('User input:', inputValue);
-    	setInputValue('');
-  	};
+    const handleSubmit = async (event) => {
+        event.preventDefault();
+        const encryptedMessage = await encryptMessage(inputValue).then((result) => {return result});
+        console.log('User input:', inputValue);
+        console.log('Encrypted message:', encryptedMessage);
+        setInputValue(encryptedMessage); // Replace the inputValue with its encrypted version
+    };
   	return (
     	<div className="InputBox">
 			<form onSubmit={handleSubmit}>
 				<label>
 					<textarea value={inputValue} onChange={handleChange} />
 				</label>
-				<button type="submit">Submit</button>
+				<button type="submit">Encrypt & Submit</button>
 				<button onClick={onClose}>Close</button>
 			</form>
 		</div>
