@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './InputBox.css';
+import './Journal.css';
 import {getPublicAddress, encryptMessage, getEncryptionKey} from './metamask/CryptMessage.js';
 
 function InputBox({ onClose }) {
@@ -28,7 +29,7 @@ function InputBox({ onClose }) {
 return (
     <div className="InputBox">
         <form onSubmit={handleSubmit}>
-            <label>{"in ciphered text using your wallet keys:"}</label>
+            <label className="label">{"in ciphered text using your wallet keys:"}</label>
             <br></br>
             <label>{labelValue}</label>
             <textarea value={inputValue} onChange={handleChange}/>

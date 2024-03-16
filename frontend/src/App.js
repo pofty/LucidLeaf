@@ -1,16 +1,20 @@
 import logo from './Logo.png';
+import nouns from './bg-warm.png'
 import './App.css';
-import ConnectButton from './ConnectButton.js';
-import SwitchView from './SwitchView.js';
+import Navbar from './Navbar.js';
+import Subtitle from './Subtitle.js';
 
 function App() {
   return (
     <div className="App">
-		<ConnectButton />
-		<SwitchView />
+		<Navbar />
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-      </header>
+		<img src={nouns} className="logo"/>
+		<div className="Title">LucidLeaf</div>
+		<div>
+		<Subtitle text="The Inner Self Explored and Shared Forever"/>
+		</div>
+	  </header>
     </div>
   );
 }

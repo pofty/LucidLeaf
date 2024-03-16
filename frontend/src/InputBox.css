@@ -1,21 +1,18 @@
+@font-face {
+    font-family: 'LondrinaSolid';
+    src: url('../assets/Fonts/Londrina_Solid/LondrinaSolid-Regular.ttf') format('truetype');
+}
+
 .InputBox {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: #f8f9fa;
-    padding: 2em;
-    border: 1px solid #ced4da;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    font-family: 'Roboto', sans-serif;
-    transition: all 0.3s ease;
-    width: 80%; /* set a width */
-    max-width: 600px; /* set a maximum width */
-    overflow: auto; /* add a scrollbar when the content is too large */
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	background-color: #8F785E;
+	padding: 30px;
+	border: 1px solid #A38654;
+	border-radius: 5px;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .InputBox form {
@@ -35,85 +32,39 @@
     justify-content: center;
 }
 
-.button-group button {
-
-}
-
 .InputBox label {
-    color: #495057;
-    font-size: 1.2em;
-    transition: color 0.3s ease;
-    word-wrap: break-word;
-    width: 100%;
-    overflow-wrap: break-word;
+	margin-bottom: 10px;
 }
-
-.InputBox textarea {
-    padding: 1em;
-    border: 1px solid #ced4da;
-    border-radius: 4px;
-    font-size: 1em;
-    width: 100%;
-    resize: none;
-    transition: all 0.3s ease;
+  
+.InputBox input[type="text"] {
+	padding: 30px;
+	width: 100%;
+	border: 1px solid #cccccc;
+	border-radius: 0;
+	font-size: 16px;
+	margin-bottom: 10px;
+	z-index: 2;
+	background-color: #A38654;
 }
 
 .InputBox button {
-    padding: 1em 2em;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-    font-size: 1em;
-    margin-top: 1em;
+	margin-top: 10px;
+	padding: 10px 80px;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+	z-index: 1;
 }
 
 .InputBox button[type="submit"] {
-    background-color: #B15BCA;
-    color: white;
+	background-color: #CFC2AB;
+	color: #5A6B7B;
 }
 
-.InputBox button[type="submit"]:hover {
-    background-color: #5a6268;
-    transform: scale(1.05);
-}
-
-.InputBox button[type="submit"]:focus {
-    outline: none;
-    box-shadow: 0 0 0 0.2rem rgba(108, 117, 125, 0.5);
-}
-
-.InputBox button[type="button"] {
-    background-color: #e9ecef;
-    color: #495057;
-}
-
-.InputBox button[type="button"]:hover {
-    background-color: #dee2e6;
-    transform: scale(1.05);
-}
-
-.InputBox button[type="button"]:focus {
-    outline: none;
-    box-shadow: 0 0 0 0.2rem rgba(233, 236, 239, 0.5);
-}
-
-.InputBox button[type="upload"] {
-    background-color: #e5c600;
-    color: white;
-}
-
-.InputBox button[type="upload"]:hover {
-    background-color: #bfa800;
-    transform: scale(1.05);
-}
-
-.InputBox button[type="close"] {
-    background-color: #e50008;
-    color: white;
-}
-
-.InputBox button[type="close"]:hover {
-    background-color: #e00d23;
-    transform: scale(1.05);
+.label {
+	font-size: x-large;
+    font-style: normal;
+    font-weight: 250;
+	font-family: 'LondrinaSolid';
+	color: #E5E5DE;
 }

@@ -1,18 +1,27 @@
+@font-face {
+    font-family: 'LondrinaSolid';
+    src: url('../assets/Fonts/Londrina_Solid/LondrinaSolid-Regular.ttf') format('truetype');
+}
+
 .Connect {
-	position: absolute;
+	position: fixed;
 	top: 20px;
 	right: 20px;
-	background-color: #B15BCA;
-	color: rgb(0, 0, 0);
+	background-color: #CFC2AB;
+	color: #5A6B7B;
 	border: none;
 	border-radius: 4px;
 	padding: 10px 20px;
 	cursor: pointer;
-	font-size: 16px;
+    font-size: x-large;
+    font-style: italic;
+    font-weight: 250;
+	font-family: 'LondrinaSolid';
+
 }
   
 .Connected-account {
-	position: absolute;
+	position: fixed;
 	display: flex;
 	top: 20px;
 	left: 20px;
@@ -28,8 +37,10 @@
   
 .Connected-address {
 	position: relative;
-	color: #B15BCA;
-	font-size: 16px;
+	color: #757576;
+    font-style: italic;
+    font-weight: 250;
+	font-family: 'LondrinaSolid';
 	z-index: 1;
 }
 
@@ -37,12 +48,16 @@
 	position: fixed;
 	top: 20px;
 	right: 20px;
-	background-color: #B15BCA;
-	color: rgb(0, 0, 0);
+	background-color: #CFC2AB;
+	color: #5A6B7B;
 	border: none;
 	border-radius: 4px;
 	padding: 10px 20px;
 	cursor: pointer;
-	font-size: 16px;
 	z-index: 1;
+    font-size: x-large;
+    font-style: italic;
+    font-weight: 250;
+	font-family: 'LondrinaSolid';
+
 }

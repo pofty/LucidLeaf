@@ -1,24 +1,50 @@
-.Container {
-	position: relative;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	top: 400px;
-	height: 50px;
-  }
-  
-  .Button {
-	position: absolute;
-	padding: 10px 20px;
-	background-color: #8A00B2;
-	color: #fff;
-	border: none;
-	border-radius: 5px;
-	cursor: pointer;
-	z-index: 0;
+@font-face {
+    font-family: 'LondrinaSolid';
+    src: url('../assets/Fonts/Londrina_Solid/LondrinaSolid-Regular.ttf') format('truetype');
 }
-  
-  .Button:hover {
-	background-color: #B057C9;
-  }
-  
+
+.Container {
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 50%;
+	left: 50%;
+    height: 50px;
+}
+
+.Button {
+    position: fixed;
+	top: 10px;
+	align-items: center;
+    padding: 10px 20px;
+    background-color: #CFC2AB;
+    color: #5A6B7B;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    z-index: 0;
+	font-size: x-large;
+    font-style: italic;
+    font-weight: 250;
+	font-family: 'LondrinaSolid';
+    transition: background-color 0.3s;
+}
+
+.Button::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background-color: rgba(255, 255, 255, 0.3);
+    transition: all 0.3s ease;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+}
+
+.Button:hover {
+	color: #A38654;
+}

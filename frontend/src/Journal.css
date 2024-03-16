@@ -1,24 +1,26 @@
+@font-face {
+    font-family: 'LondrinaSolid';
+    src: url('../assets/Fonts/Londrina_Solid/LondrinaSolid-Regular.ttf') format('truetype');
+}
+
 .Journal button {
-	margin-top: 10px;
-	padding: 10px 20px;
-	border: none;
-	border-radius: 4px;
-	cursor: pointer;
-  }
-  
-.Journal button[type="button"] {
-	background-color: #B057C9;
-	color: white;
-  }
-  
-.Journal button[type="button"]:hover {
-	background-color: #8A00B2;
-  }
-  
-.Journal button[type="button"]:focus {
-	outline: none;
-  }
-  
-.Journal button[type="button"]:active {
-	background-color: #8A00B2;
-  }
+    margin-top: 10px;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: x-large;
+    font-style: italic;
+    font-weight: 250;
+	font-family: 'LondrinaSolid';
+    background-color: #CFC2AB; /* Original background color */
+    color: #5A6B7B;
+    position: relative;
+    overflow: hidden;
+    transition: color 0.3s, border-color 0.3s, transform 0.3s;
+}
+
+.Journal button:hover {
+    color: #A38654; /* Green text color on hover */
+    border-color: #A38654; /* Green border color on hover */
+}
