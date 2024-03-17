@@ -1,13 +1,19 @@
 import React, { useState } from 'react';
 import './Messages.css';
 import { JournalType } from './constants/JournalType.js';
+import DisplayRecords from './DisplayRecords.js';
 
 function Messages() {
     const [selectedType, setSelectedType] = useState('');
+    const [journalRecords, setJournalRecords] = useState([]); // Add a state variable for the journal records
 
     const handleChange = (event) => {
         setSelectedType(event.target.value);
     };
+
+    const getRecords = () => {
+
+    }
 
     return (
         <div className="Container">
@@ -23,6 +29,7 @@ function Messages() {
                 </select>
             </div>
             <button className="GetRecords">Get Records</button>
+            <DisplayRecords numberOfRectangles={journalRecords.length} /> {/* Use DisplayRecords here */}
         </div>
     );
 }

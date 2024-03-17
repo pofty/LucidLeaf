@@ -18,7 +18,7 @@ const SwitchView = ({ switchText }) => {
         <input type="checkbox" onClick={toggleComponent} />
         <span className="Slider"></span>
       </label>
-      <p>{switchState ? "Upload Securely Forever" : "Download and Read"}</p> {/* Display different text based on the switch state */}
+      <p>{switchState ? "Download and Read" : "Upload Securely Forever"}</p> {/* Display different text based on the switch state */}
       {showInputButton ? <InputButton /> : <Messages />}
     </div>
   );

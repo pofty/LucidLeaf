@@ -11,7 +11,9 @@ function InputBox({ onClose }) {
     const [ipfsHash, setIpfsHash] = useState('');
     const [encryptButtonText, setEncryptButtonText] = useState('Retrieve Encryption Key and Encrypt');
     const [uploadButtonText, setUploadButtonText] = useState('Upload to IPFS network on FileCoin');
-    const [isIpfsLinkVisable, setIpfsLinkVisibility] = useState(false);
+    const [isIpfsLinkVisible, setIpfsLinkVisibility] = useState(false);
+    const [isIpfsLinkVisibleViaCloudFlare, setIpfsLinkVisibilityViaCloudFlare] = useState(false);
+
     const [isEncryptedAlreadyDone, setIsEncryptedAlreadyDone] = useState(false);
     const [isAlreadyUploaded, setIsAlreadyUploaded] = useState(false);
 
@@ -24,9 +26,10 @@ function InputBox({ onClose }) {
     };
 
     const updateUploadStatus = (newValue) => {
-        setUploadStatus("✅ Uploaded");
+        setUploadStatus("✅ Entry Registered Successfully");
         setIpfsHash(newValue.toString());
         setIpfsLinkVisibility(true);
+        setIpfsLinkVisibilityViaCloudFlare(true)
     };
 
     const handleSubmit = async event => {
@@ -55,11 +58,15 @@ return (
             <textarea value={inputValue} onChange={handleChange}/>
             <label>{uploadStatus}</label>
             <a href={`https://gateway.lighthouse.storage/ipfs/${ipfsHash}`} target="_blank" rel="noopener noreferrer">
-{isIpfsLinkVisable && <label>{`https://gateway.lighthouse.storage/ipfs/${ipfsHash}`}</label>}              </a>
-        <div className="button-group">
-            <button type="submit" disabled={isEncryptedAlreadyDone} >{encryptButtonText}</button>
-            <button type="upload" disabled={isAlreadyUploaded} onClick={handleUpload}>{uploadButtonText} </button>
-            <button type="close" onClick={onClose}>Close and Go Back</button>
+                {isIpfsLinkVisible &&
+                    <label>{`https://gateway.lighthouse.storage/ipfs/${ipfsHash}`}</label>}              </a>
+            <a href={`https://cloudflare-ipfs.com/ipfs/${ipfsHash}`} target="_blank" rel="noopener noreferrer">
+                {isIpfsLinkVisibleViaCloudFlare &&
+                    <label>{`https://cloudflare-ipfs.com/ipfs/${ipfsHash}`}</label>}              </a>
+            <div className="button-group">
+                <button type="submit" disabled={isEncryptedAlreadyDone}>{encryptButtonText}</button>
+                <button type="upload" disabled={isAlreadyUploaded} onClick={handleUpload}>{uploadButtonText} </button>
+                <button type="close" onClick={onClose}>Close and Go Back</button>
 
             </div>
         </form>
@@ -72,7 +79,8 @@ export default function InputButton() {
 
     return (
         <div className="Journal">
-            {showInputBox ? <InputBox onClose={() => setShowInputBox(false)} /> : <button type="journal" onClick={() => setShowInputBox(true)}>Journal</button>}
+            {showInputBox ? <InputBox onClose={() => setShowInputBox(false)}/> :
+                <button type="journal" onClick={() => setShowInputBox(true)}>Journal</button>}
         </div>
     );
 }
