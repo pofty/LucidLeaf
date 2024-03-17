@@ -17,4 +17,5 @@ getListOfEntries().then(response => {
     for (let i = 0; i < response.data.fileList.length; i++) {
        listOfObjects.push( new DownloadedRecord(response.data.fileList[i]));
     }
+    return listOfObjects
 });
