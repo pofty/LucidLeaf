@@ -6,37 +6,27 @@ import {decryptMessage} from "./metamask/CryptMessage.js";
 import {DownloadedRecord} from "./dataStructures/DownloadedRecord.js";
 
 function DisplayRecords({ records, onClose }) {
-    const [displayContent, setDisplayContent] = useState(null); // Move this line inside the function
+    const [displayContent, setDisplayContent] = useState(null);
 
     const handleDisplay = async (record) => {
         console.log("button clicked")
+        const decryptedMessage = await decryptMessage(await getIpfsData(new DownloadedRecord(records[0]).getProperty("cid")));
         return (
             <div className="RecordsContainer">
                 <div className="cid">Cid</div>
                 <div className="encrypted">temp(</div>
-                <button
-                    className="unencrypt">{await decryptMessage(getIpfsData(new DownloadedRecord(records[0]).getProperty("cid")))}</button>
+                <button className="unencrypt">{decryptedMessage}</button>
                 <div className="decrypt"></div>
             </div>
         )
     }
 
-
-    const handleClick = (records) => {
-        const content = handleDisplay(records);
+    const handleClick = async (records) => {
+        const content = await handleDisplay(records);
         setDisplayContent(content);
     };
 
-
-function DisplayRecords({ records, onClose }) {
     console.log('DisplayRecords:', records);
-	const [display, setDisplay] = useState(false);
-
-	const handleClick = (records) => {
-        // const content = handleDisplay(records);
-		setDisplay(true)
-    };
-
     return (
         <div className="rectangle-container">
             <button onClick={onClose} className="close-button">Close</button>
@@ -56,4 +46,4 @@ function DisplayRecords({ records, onClose }) {
     );
 }
 
-export default DisplayRecords;
+export default DisplayRecords; // Add this line at the end of the file

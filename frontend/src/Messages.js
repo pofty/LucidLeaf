@@ -4,7 +4,7 @@ import { JournalType } from './constants/JournalType.js';
 import lighthouse from '@lighthouse-web3/sdk'
 import { ApiKeys } from "./constants/ApiKeys.js";
 import { DownloadedRecord } from "./dataStructures/DownloadedRecord.js";
-import DisplayRecords from './DisplayRecords.js';
+import DisplayRecords from './DisplayRecords.js'; // Ensure this path is correct
 import getListOfEntries from './lighthouse/getListOfEntries.js';
 
 function Messages() {
@@ -49,7 +49,6 @@ return (
             </select>
         </div>
         <button className="GetRecords" onClick={handleGetRecords}>Get Records</button>
-        <DisplayRecords records={records} onClose={handleCloseDisplayRecords} />
         {isDisplayRecordsVisible && <DisplayRecords records={records} onClose={handleCloseDisplayRecords} />}
     </div>
 );
