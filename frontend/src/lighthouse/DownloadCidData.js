@@ -9,3 +9,5 @@ const getIpfsData = async (cid) => {
             console.error('Error fetching the page: ', error);
         });
 }
+
+export default getIpfsData;

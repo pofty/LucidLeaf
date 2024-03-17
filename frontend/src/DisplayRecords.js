@@ -1,26 +1,32 @@
 import React, { useState } from 'react';
 import './DisplayRecords.css'; // Import the CSS file
 import epochToDate from './dataStructures/EpochTime.js';
+import getIpfsData from "./lighthouse/DownloadCidData.js";
+import {decryptMessage} from "./metamask/CryptMessage.js";
+import {DownloadedRecord} from "./dataStructures/DownloadedRecord.js";
 
-function handleDisplay(records) {
-	console.log("button clicked")
-    return (
-        <div className="RecordsContainer">
-            <div className="cid">Cid</div>
-            <div className="encrypted">Encrypted Text</div>
-            <button className="unencrypt">Unencrypt</button>
-            <div className="decrypt"></div>
-        </div>
-    )
-}
+function DisplayRecords({ records, onClose }) {
+    const [displayContent, setDisplayContent] = useState(null); // Move this line inside the function
+
+    const handleDisplay = async (record) => {
+        console.log("button clicked")
+        return (
+            <div className="RecordsContainer">
+                <div className="cid">Cid</div>
+                <div className="encrypted">temp(</div>
+                <button
+                    className="unencrypt">{await decryptMessage(getIpfsData(new DownloadedRecord(records[0]).getProperty("cid")))}</button>
+                <div className="decrypt"></div>
+            </div>
+        )
+    }
+
 
     const handleClick = (records) => {
         const content = handleDisplay(records);
         setDisplayContent(content);
     };
 
-
-function DisplayRecords({ records, onClose }) {
     console.log('DisplayRecords:', records);
     return (
         <div className="rectangle-container">
