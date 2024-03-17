@@ -14,14 +14,11 @@ function handleDisplay(records) {
     )
 }
 
-function DisplayRecords({ records }) {
-    const [displayContent, setDisplayContent] = useState(null);
-
-    const handleClick = () => {
+    const handleClick = (records) => {
         const content = handleDisplay(records);
         setDisplayContent(content);
     };
-}
+
 
 function DisplayRecords({ records, onClose }) {
     console.log('DisplayRecords:', records);
@@ -36,7 +33,7 @@ function DisplayRecords({ records, onClose }) {
                     <div className="rectangle-content">
                         <span className="rectangle-text">{record.getProperty("cid")}</span>
                     </div>
-                    <button className="access-button" onClick={handleClick}>Access Records</button>
+                    <button className="access-button" onClick={() => handleClick(records)}>Access Records</button>
                 </div>
             ))}
             {displayContent && displayContent}
