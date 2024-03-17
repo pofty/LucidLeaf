@@ -6,3 +6,4 @@ function epochToDate(epoch) {
     const year = date.getFullYear();
     return day + "/" + month + "/" + year;
 }
+export default epochToDate;
