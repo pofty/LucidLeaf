@@ -27,7 +27,16 @@ function DisplayRecords({ records, onClose }) {
         setDisplayContent(content);
     };
 
+
+function DisplayRecords({ records, onClose }) {
     console.log('DisplayRecords:', records);
+	const [display, setDisplay] = useState(false);
+
+	const handleClick = (records) => {
+        // const content = handleDisplay(records);
+		setDisplay(true)
+    };
+
     return (
         <div className="rectangle-container">
             <button onClick={onClose} className="close-button">Close</button>
