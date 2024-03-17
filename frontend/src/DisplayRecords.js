@@ -1,6 +1,25 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './DisplayRecords.css'; // Import the CSS file
 import epochToDate from './dataStructures/EpochTime.js';
+
+function handleDisplay(records) {
+	console.log("button clicked")
+    return (
+        <div className="RecordsContainer">
+            <div className="cid">Cid</div>
+            <div className="encrypted">Encrypted Text</div>
+            <button className="unencrypt">Unencrypt</button>
+            <div className="decrypt"></div>
+        </div>
+    )
+}
+
+    const handleClick = (records) => {
+        const content = handleDisplay(records);
+        setDisplayContent(content);
+    };
+
+
 function DisplayRecords({ records, onClose }) {
     console.log('DisplayRecords:', records);
     return (
@@ -14,10 +33,10 @@ function DisplayRecords({ records, onClose }) {
                     <div className="rectangle-content">
                         <span className="rectangle-text">{record.getProperty("cid")}</span>
                     </div>
-                    <button className="access-button" > Access Record </button>
-
+                    <button className="access-button" onClick={() => handleClick(records)}>Access Records</button>
                 </div>
             ))}
+            {displayContent && displayContent}
         </div>
     );
 }

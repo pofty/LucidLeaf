@@ -68,3 +68,30 @@
 .close-button:before {
     content: '×';
 }
+
+.RecordsContainer {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-top: 10px;
+}
+
+.cid {
+    font-weight: bold;
+}
+
+.encrypted {
+    margin-top: 10px;
+}
+
+.unencrypt {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.decrypt {
+    margin-top: 10px;
+}
