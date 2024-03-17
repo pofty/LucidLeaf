@@ -13,8 +13,8 @@ const getListOfEntries = async() =>{
 
 
 getListOfEntries().then(response => {
+    let listOfObjects = []
     for (let i = 0; i < response.data.fileList.length; i++) {
-       const entry = new DownloadedRecord(response.data.fileList[i]).getProperty('cid')
-        console.log(entry);
+       listOfObjects.push( new DownloadedRecord(response.data.fileList[i]));
     }
 });
