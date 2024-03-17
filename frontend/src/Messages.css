@@ -1,10 +1,27 @@
 .Container {
-	position: absolute;
-	display: flex;	
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
 }
 
-.Messages {
-	position: relative;
-	top: 0px;
-	align-items: center;
+.JournalType {
+	position: fixed;
+    top: 350px; /* Adjust as needed */
+	z-index: 2;
+}
+
+#journalType {
+    width: 200px; /* Adjust width as needed */
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    cursor: pointer;
+}
+
+.GetRecords {
+	position: fixed;
+	top: 550px;
 }
