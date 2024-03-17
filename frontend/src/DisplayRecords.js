@@ -14,7 +14,7 @@ function DisplayRecords({ records, onClose }) {
                     <div className="rectangle-content">
                         <span className="rectangle-text">{record.getProperty("cid")}</span>
                     </div>
-                    <button className="access-button" ></button>
+                    <button className="access-button" > Access Record </button>
                 </div>
             ))}
         </div>

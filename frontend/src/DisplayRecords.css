@@ -1,52 +1,76 @@
 .rectangle-container {
+    /* Positioning */
     position: absolute;
-    top: 10px; /* Adjust as needed */
-    right: 10px; /* Adjust as needed */
+    top: 1rem; /* Adjust as needed */
+    right: 1rem; /* Adjust as needed */
     z-index: 1000; /* High z-index to overlay other elements */
+
+    /* Layout */
     display: flex;
     flex-wrap: wrap;
 }
+
 .rectangle {
-    width: 200px; /* Adjust width as needed */
-    height: 150px; /* Adjust height as needed */
-    margin: 10px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    /* Sizing */
+    width: 12.5rem; /* Adjust width as needed */
+    height: 9.375rem; /* Adjust height as needed */
+
+    /* Spacing */
+    margin: 0.625rem;
+    padding: 0.625rem;
+
+    /* Styling */
+    border: 0.0625rem solid #ccc;
+    border-radius: 0.3125rem;
+
+    /* Positioning */
     z-index: 2;
 }
 
 .rectangle-content {
-    margin-bottom: 10px;
+    /* Spacing */
+    margin-bottom: 0.625rem;
 }
 
 .rectangle-date {
+    /* Styling */
     font-weight: bold;
 }
 
 .rectangle-text {
-    margin-bottom: 10px;
+    /* Spacing */
+    margin-bottom: 0.625rem;
 }
 
 .access-button {
+    /* Styling */
     background-color: #007bff;
     color: #fff;
     border: none;
-    padding: 5px 10px;
-    border-radius: 3px;
+    border-radius: 0.1875rem;
+
+    /* Spacing */
+    padding: 0.3125rem 0.625rem;
+
+    /* Interaction */
     cursor: pointer;
     outline: none;
 }
 
 .access-button:hover {
+    /* Styling */
     background-color: #0056b3;
 }
 
 .close-button {
+    /* Positioning */
     position: absolute;
     top: 0;
     right: 0;
-    padding: 5px;
+
+    /* Spacing */
+    padding: 0.3125rem;
+
+    /* Interaction */
     cursor: pointer;
 }
-  
