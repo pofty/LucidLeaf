@@ -1,24 +1,53 @@
 .Container {
-	position: relative;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	top: 400px;
-	height: 50px;
-  }
-  
-  .Button {
-	position: absolute;
-	padding: 10px 20px;
-	background-color: #8A00B2;
-	color: #fff;
-	border: none;
-	border-radius: 5px;
-	cursor: pointer;
-	z-index: 0;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  top: 400px;
+  height: 50px;
 }
-  
-  .Button:hover {
-	background-color: #B057C9;
-  }
-  
+.Switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.Switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.Slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: red;
+  transition: .4s;
+  border-radius: 34px;
+}
+
+.Slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: .4s;
+  border-radius: 50%;
+}
+
+input:checked + .Slider {
+  background-color: #0db010;
+}
+
+input:checked + .Slider:before {
+  transform: translateX(26px);
+}

@@ -3,19 +3,23 @@ import InputButton from './InputButton.js';
 import Messages from './Messages.js';
 import './Switch.css';
 
-const SwitchView = () => {
+const SwitchView = ({ switchText }) => {
   const [showInputButton, setShowInputButton] = useState(true);
+  const [switchState, setSwitchState] = useState(false); // Add a state variable for the switch state
 
   const toggleComponent = () => {
     setShowInputButton(!showInputButton);
+    setSwitchState(!switchState); // Toggle the switch state when the switch is clicked
   };
 
   return (
     <div className="Container">
-    <button className="Button" onClick={toggleComponent}>
-    Switch View
-	</button>
-        {showInputButton ? <InputButton /> : <Messages />}
+      <label className="Switch">
+        <input type="checkbox" onClick={toggleComponent} />
+        <span className="Slider"></span>
+      </label>
+      <p>{switchState ? "Upload Securely Forever" : "Download and Read"}</p> {/* Display different text based on the switch state */}
+      {showInputButton ? <InputButton /> : <Messages />}
     </div>
   );
 };

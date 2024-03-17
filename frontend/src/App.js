@@ -6,8 +6,8 @@ import SwitchView from './SwitchView.js';
 function App() {
   return (
     <div className="App">
+        <SwitchView switchText="Your text here" /> {/* Pass the text to the SwitchView component */}
 		<ConnectButton />
-		<SwitchView />
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
       </header>
