@@ -24,7 +24,7 @@ function Messages() {
 			   listOfObjects.push( new DownloadedRecord(response.data.fileList[i]));
 			}
             console.log('listOfObjects:', listOfObjects);
-			records = listOfObjects;
+			setRecords(listOfObjects);
 		});
     };
 
