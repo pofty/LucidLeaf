@@ -49,9 +49,15 @@ export async function encryptMessage(plainText) {
 }
 
 export async function decryptMessage(encryptedMessage) {
+    if (typeof encryptedMessage !== 'string' || encryptedMessage === '') {
+        console.error('Invalid encrypted message');
+        return null;
+    }
+    if (encryptionKey === "") {
         encryptionKey = await getEncryptionKey();
-        const bytes = CryptoJS.AES.decrypt(encryptedMessage, encryptionKey);
-        return bytes.toString(CryptoJS.enc.Utf8);
+    }
+    const bytes = CryptoJS.AES.decrypt(encryptedMessage, encryptionKey);
+    return bytes.toString(CryptoJS.enc.Utf8);
 }
 
 export default {getPublicAddress, encryptMessage, decryptMessage, getEncryptionKey};

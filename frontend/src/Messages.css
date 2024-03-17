@@ -1,17 +1,33 @@
 .Container {
-    display: flex;
-    flex-direction: column;
+	top: 20px;
     align-items: center;
     justify-content: center;
-    height: 100vh;
     padding: 1rem;
     box-sizing: border-box;
 }
 
-.JournalType, .GetRecords {
+.JournalType {
+	position: relative;
+	bottom: 30em;
     width: 100%;
     max-width: 600px;
     margin-bottom: 1rem;
+	font-size: x-large;
+	color: grey;
+	z-index: 2;
+}
+
+.GetRecords {
+	position: relative;
+	bottom: 30em;
+    width: 130%;
+    max-width: 600px;
+    margin-bottom: 1rem;
+	z-index: 2;
+	font-size: x-large;
+	color: grey;
+	background-color: lightgoldenrodyellow;
+	padding: 10px 20px 30px;
 }
 
 #journalType {
