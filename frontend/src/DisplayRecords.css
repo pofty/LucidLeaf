@@ -19,7 +19,7 @@
 .rectangle {
     flex: 1 0 200px;
     margin: 0.5rem;
-    padding: 0.5rem;
+    padding: 16rem;
     border: 1px solid #ccc;
     border-radius: 0.25rem;
     box-sizing: border-box;
@@ -74,8 +74,8 @@
 	top: 50%;
 	left: 50%;
     border: 1px solid #ccc;
-    padding: 10px;
-    margin-top: 10px;
+    padding: 100px;
+    margin-top: 100px;
 	z-index: 3;
 	background-color: black;
 	color: white;
