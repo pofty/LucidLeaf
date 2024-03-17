@@ -21,9 +21,13 @@ function DisplayRecords({ records }) {
         const content = handleDisplay(records);
         setDisplayContent(content);
     };
+}
 
+function DisplayRecords({ records, onClose }) {
+    console.log('DisplayRecords:', records);
     return (
         <div className="rectangle-container">
+            <button onClick={onClose} className="close-button">Close</button>
             {records.map((record, index) => (
                 <div key={index} className="rectangle">
                     <div className="rectangle-content">
@@ -32,7 +36,7 @@ function DisplayRecords({ records }) {
                     <div className="rectangle-content">
                         <span className="rectangle-text">{record.getProperty("cid")}</span>
                     </div>
-                    <button className="access-button" onClick={handleClick}></button>
+                    <button className="access-button" onClick={handleClick}>Access Records</button>
                 </div>
             ))}
             {displayContent && displayContent}
