@@ -72,7 +72,7 @@ export default function InputButton() {
 
     return (
         <div className="Journal">
-            {showInputBox ? <InputBox onClose={() => setShowInputBox(false)} /> : <button onClick={() => setShowInputBox(true)}>Journal</button>}
+            {showInputBox ? <InputBox onClose={() => setShowInputBox(false)} /> : <button type="journal" onClick={() => setShowInputBox(true)}>Journal</button>}
         </div>
     );
 }

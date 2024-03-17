@@ -123,3 +123,13 @@
     background-color: #cccccc;
     cursor: not-allowed;
 }
+
+.InputBox button[type="journal"] {
+    background-color: #443e10;
+    color: white;
+}
+
+.InputBox button[type="journal"]:hover {
+    background-color: #b7a418;
+    transform: scale(1.05);
+}
