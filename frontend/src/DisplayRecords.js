@@ -7,25 +7,6 @@ import {DownloadedRecord} from "./dataStructures/DownloadedRecord.js";
 
 function DisplayRecords({ records, onClose }) {
     const [displayContent, setDisplayContent] = useState(null);
-
-    const handleDisplay = async (record) => {
-        console.log("button clicked")
-        const decryptedMessage = await decryptMessage(await getIpfsData(new DownloadedRecord(records[0]).getProperty("cid")));
-        return (
-            <div className="RecordsContainer">
-                <div className="cid">Cid</div>
-                <div className="encrypted">temp(</div>
-                <button className="unencrypt">{decryptedMessage}</button>
-                <div className="decrypt"></div>
-            </div>
-        )
-    }
-
-    const handleClick = async (records) => {
-        const content = await handleDisplay(records);
-        setDisplayContent(content);
-    };
-
     console.log('DisplayRecords:', records);
     return (
         <div className="rectangle-container">
@@ -38,7 +19,6 @@ function DisplayRecords({ records, onClose }) {
                     <div className="rectangle-content">
                         <span className="rectangle-text">{record.getProperty("cid")}</span>
                     </div>
-                    <button className="access-button" onClick={() => handleClick(records)}>Access Records</button>
                 </div>
             ))}
             {displayContent && displayContent}
