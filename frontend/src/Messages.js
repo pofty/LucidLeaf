@@ -5,11 +5,11 @@ import lighthouse from '@lighthouse-web3/sdk'
 import { ApiKeys } from "./constants/ApiKeys.js";
 import { DownloadedRecord } from "./dataStructures/DownloadedRecord.js";
 import DisplayRecords from './DisplayRecords.js';
-import getListOfEntries from './getListofEntries.js';
+import getListOfEntries from './lighthouse/getListOfEntries.js';
 
 function Messages() {
     const [selectedType, setSelectedType] = useState('');
-    const [records, setRecords] = useState([]);
+    let [records, setRecords] = useState([]);
 
     const handleChange = (event) => {
         setSelectedType(event.target.value);
@@ -17,12 +17,14 @@ function Messages() {
 
 
     const handleGetRecords = () => {
-        records = getListOfEntries().then(response => {
+        console.log('Get Records button clicked');
+        getListOfEntries().then(response => {
 			let listOfObjects = []
 			for (let i = 0; i < response.data.fileList.length; i++) {
 			   listOfObjects.push( new DownloadedRecord(response.data.fileList[i]));
 			}
-			return listOfObjects
+            console.log('listOfObjects:', listOfObjects);
+			records = listOfObjects;
 		});
     };
 
@@ -33,7 +35,7 @@ function Messages() {
                 <select id="journalType" value={selectedType} onChange={handleChange}>
                     <option value="">Select</option>
                     {Object.values(JournalType).map((type, index) => (
-                        <option key={index} value={type}>
+                        <option key={index} value={type.toString()}>
                             {type}
                         </option>
                     ))}

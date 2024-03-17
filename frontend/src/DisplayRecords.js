@@ -2,6 +2,7 @@ import React from 'react';
 import './DisplayRecords.css'; // Import the CSS file
 import epochToDate from './dataStructures/EpochTime.js';
 function DisplayRecords({ records }) {
+    console.log('DisplayRecords:', records);
     return (
         <div className="rectangle-container">
             {records.map((record, index) => (
