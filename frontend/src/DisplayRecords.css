@@ -1,0 +1,41 @@
+.rectangle-container {
+	display: flex;
+	flex-wrap: wrap;
+  }
+  
+  .rectangle {
+	width: 200px; /* Adjust width as needed */
+	height: 150px; /* Adjust height as needed */
+	margin: 10px;
+	padding: 10px;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	z-index: 2;
+  }
+  
+  .rectangle-content {
+	margin-bottom: 10px;
+  }
+  
+  .rectangle-date {
+	font-weight: bold;
+  }
+  
+  .rectangle-text {
+	margin-bottom: 10px;
+  }
+  
+  .access-button {
+	background-color: #007bff;
+	color: #fff;
+	border: none;
+	padding: 5px 10px;
+	border-radius: 3px;
+	cursor: pointer;
+	outline: none;
+  }
+  
+  .access-button:hover {
+	background-color: #0056b3;
+  }
+  

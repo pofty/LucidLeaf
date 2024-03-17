@@ -2,6 +2,7 @@ import logo from './Logo.png';
 import './App.css';
 import ConnectButton from './ConnectButton.js';
 import SwitchView from './SwitchView.js';
+import DisplayRecords from './DisplayRecords.js';
 
 function App() {
   return (
