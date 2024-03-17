@@ -14,17 +14,18 @@ function handleDisplay(records) {
     )
 }
 
-function DisplayRecords({ records }) {
-    const [displayContent, setDisplayContent] = useState(null);
+    
 
-    const handleClick = () => {
-        const content = handleDisplay(records);
-        setDisplayContent(content);
-    };
-}
 
 function DisplayRecords({ records, onClose }) {
     console.log('DisplayRecords:', records);
+	const [display, setDisplay] = useState(false);
+
+	const handleClick = (records) => {
+        // const content = handleDisplay(records);
+		setDisplay(true)
+    };
+
     return (
         <div className="rectangle-container">
             <button onClick={onClose} className="close-button">Close</button>
@@ -36,12 +37,21 @@ function DisplayRecords({ records, onClose }) {
                     <div className="rectangle-content">
                         <span className="rectangle-text">{record.getProperty("cid")}</span>
                     </div>
-                    <button className="access-button" onClick={handleClick}>Access Records</button>
+                    <button className="access-button" onClick={() => handleClick(records)}>Access Records</button>
                 </div>
             ))}
-            {displayContent && displayContent}
+
+			{display && (
+				<div className="RecordsContainer">
+				<div className="cid">Cid</div>
+				<div className="encrypted">Encrypted Text</div>
+				<button className="unencrypt">Unencrypt</button>
+				<div className="decrypt"></div>
+			</div>
+			)}
         </div>
     );
 }
+
 
 export default DisplayRecords;
