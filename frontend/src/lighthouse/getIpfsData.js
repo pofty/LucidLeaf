@@ -1,6 +1,6 @@
 
 const getIpfsData = async (cid) => {
-    fetch('https://gateway.lighthouse.storage/ipfs/' + cid)
+    return fetch('https://cloudflare-ipfs.com/ipfs/' + cid)
         .then(response => response.text())
         .then(html => {
             return html; // the value of the IPFS data
@@ -9,5 +9,4 @@ const getIpfsData = async (cid) => {
             console.error('Error fetching the page: ', error);
         });
 }
-
 export default getIpfsData;
