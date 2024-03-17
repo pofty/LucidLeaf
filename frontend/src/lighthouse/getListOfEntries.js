@@ -18,3 +18,4 @@ getListOfEntries().then(response => {
        listOfObjects.push( new DownloadedRecord(response.data.fileList[i]));
     }
 });
+export default getListOfEntries;
