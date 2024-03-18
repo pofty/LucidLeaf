@@ -1,9 +1,12 @@
 # LucidLeaf
 
-LucidLeaf is a secure and extensible protocol for diary, dream and secrets journaling 
+![image](frontend/assets/Logo.png)
 
-![image](frontend/assets/Large-Logo.png)
+Lucidly is a decentralised way to document your life in a secure way that lives forever on the Blockchain, our memories our experiences our lives are what makes us human and what if in three or four generations time my grandchildren want to know more about me, their ancestors :)
 
 Tech Stack/ Tools
-- NPM v18.0.0
+- React
+- FileCoin Network
+- Metamask
+- Crypto.js
 
