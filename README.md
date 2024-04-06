@@ -1,7 +1,8 @@
 # LucidLeaf
 
 This project was built in one day during ETHGlobal Hackthon
-we won a prize of 500USD 
+https://ethglobal.com/showcase/luciddream-wsaad
+
 
 ![image](frontend/assets/Logo.png)
 
