@@ -1,7 +1,9 @@
 # LucidLeaf
 
 This project was built in one day during ETHGlobal Hackthon
+
 Prize Winner of: Filecoin - Build Data Economies & Tools Together with Filecoin Runners Up
+
 https://ethglobal.com/showcase/luciddream-wsaad
 
 
